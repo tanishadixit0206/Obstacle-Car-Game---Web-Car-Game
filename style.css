@@ -1,0 +1,108 @@
+body {
+  background-image: url("pictures/2d/backgrounds/background8.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* align-items: flex-end; */
+  /* place-items: center; */
+  /* box-sizing: border-box; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#mainCar img {
+  width: 5.5vw;
+  height: auto;
+  z-index: 30;
+  /* background-size: cover; */
+}
+
+#mainCar {
+  position:absolute;
+  bottom:0%;
+  display: grid;
+}
+
+.road {
+  background-image: url("pictures/2d/roads/road1.jpg");
+  background-repeat: repeat-y;
+  background-size: contain;
+  position: fixed;
+  height: 10000000000000vh;
+  width: 18vw;
+  animation-name: moveRoad;
+  animation-duration: 100000s;
+  animation-iteration-count: infinite;
+}
+
+.obstacle {
+  position: absolute;
+  animation-name: moveObstacle;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+.obstacleImg {
+  position: relative;
+  width: 5vw;
+  height: auto;
+  z-index: 20;
+}
+
+@keyframes moveObstacle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes moveRoad {
+  0%{
+    transform:translateY(-50%);
+  }
+  100%{
+    transform: translateY(100%);
+  }
+  
+}
+
+/* .roadBoundary {
+      background-image: url("pictures/animated_road/roadBoundary.png");
+      position: relative;
+      height: 1200vh;
+      width: 100vw;
+      top: -80vh;
+      z-index: 1;
+    }
+  
+    .rightStrip,
+    .centerStrip,
+    .leftStrip {
+      position: absolute;
+      height: 250px;
+      width: 100%;
+      z-index: 30;
+    }
+  
+    .rightStrip {
+      right: 0;
+    }
+  
+    .centerStrip {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .leftStrip {
+      left: 0;
+    } */

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale1=1.0" />
+    <title>GamePage</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <style>
+    body {
+      background-image: url("pictures/2d/backgrounds/background1.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      margin:0;
+      /* overflow:hidden */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+ <body>
+  <div id="mainCar">
+    <img src="pictures/2d/player_cars/blackcar1.png" alt="Player Car (You)">
+  </div>
+  <div class="road">
+    <!-- <img src="pictures/2d/roads/road1.png"> -->
+  </div>
+  <!-- <div class="roadBoundary">
+    <div class="rightStrip">
+      <img src="pictures/animated_road/rightStrip.png" alt="Right Strip">
+    </div>
+    <div class="centerStrip">
+      <img src="pictures/animated_road/centerStrip.png" alt="Center Strip">
+    </div>
+    <div class="leftStrip">
+      <img src="pictures/animated_road/leftStrip.png" alt="Left Strip">
+    </div>
+  </div> -->
+</body>
+</html>
+<!-- start button, pause button , score, health -->
+
+
+
+
+
+
+
+
+
