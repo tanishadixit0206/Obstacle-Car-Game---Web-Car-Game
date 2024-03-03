@@ -27,6 +27,7 @@ body {
   position:absolute;
   bottom:0%;
   display: grid;
+  margin-bottom: 2vh;
 }
 
 .road {
@@ -46,11 +47,13 @@ body {
   animation-name: moveObstacle;
   animation-duration: 10s;
   animation-iteration-count: infinite;
+  display:none;
 }
 .obstacleImg {
   width: 5vw;
   height: auto;
   z-index: 20;
+  /* display: none; */
 }
 
 #score{
