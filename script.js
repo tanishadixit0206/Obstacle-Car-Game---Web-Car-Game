@@ -117,10 +117,10 @@ if (highScore) {
   highScoreElement.textContent = "High Score: " + highScore;
 }
 
-//pause button, restart? , home menu -select car, background, start button, tutorials,lives,levels
+// home menu -select car, background, start button, tutorials,lives,levels
 
 requestAnimationFrame(checkCollision);
-// requestAnimationFrame(checkScore);
+requestAnimationFrame(checkScore);
 setInterval(createObstacle, obstacleCreationSpeed);
 setInterval(function () {
   obstacleMovementSpeed *= 1.01;
