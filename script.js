@@ -1,10 +1,22 @@
 const pause = document.getElementById("pause");
+const restart = document.getElementById("restart");
+const continueGame = document.getElementById("continue");
 const car = document.getElementById("mainCar");
 const obstacles = document.getElementsByClassName("obstacle");
 const road = document.getElementById("road");
 const roadRect = road.getBoundingClientRect();
 const scoreElement = document.getElementById("score");
-const highScoreElement=document.getElementById("highScore");
+const highScoreElement = document.getElementById("highScore");
+let obstacleMovementSpeed = 5;
+let obstacleCreationSpeed = 5000;
+let gameOn = true;
+restart.classList.add("hide");
+continueGame.classList.add("hide");
+for (let j = 0; j < obstacles.length; j++) {
+  if (!obstacles[j].classList.contains("hide")) {
+    obstacles[j].classList.add("hide");
+  }
+}
 
 document.addEventListener("keydown", function (event) {
   const key = event.key.toLowerCase();
@@ -18,16 +30,86 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener("animationend", function (event) {
   if (
     event.animationName == "moveObstacleCenter" ||
-    "moveObstacleLeft" ||
-    "moveObstacleRight"
+    event.animationName == "moveObstacleLeft" ||
+    event.animationName == "moveObstacleRight"
   ) {
     event.target.classList.remove("show");
     event.target.classList.add("hide");
+    if (event.target.classList.contains("obstacleAnimationCenter")) {
+      event.target.classList.remove("obstacleAnimationCenter");
+    } else if (event.target.classList.contains("obstacleAnimationLeft")) {
+      event.target.classList.remove("obstacleAnimationLeft");
+    } else if (event.target.classList.contains("obstacleAnimationRight")) {
+      event.target.classList.remove("obstacleAnimationRight");
+    }
   }
 });
 
 pause.addEventListener("click", function () {
-  car.classList.add("stop");
+  gameOn = false;
+  if (!road.classList.contains("stop")) {
+    road.classList.add("stop");
+  }
+
+  for (let j = 0; j < obstacles.length; j++) {
+    if (!obstacles[j].classList.contains("stop")) {
+      obstacles[j].classList.add("stop");
+    }
+  }
+  if (restart.classList.contains("hide")) {
+    restart.classList.remove("hide");
+  }
+  if (continueGame.classList.contains("hide")) {
+    continueGame.classList.remove("hide");
+  }
+  restart.classList.add("show");
+  continueGame.classList.add("show");
+});
+
+restart.addEventListener("click", function () {
+  obstacleMovementSpeed = 5;
+  obstacleCreationSpeed = 5000;
+  scoreElement.textContent = "Score: 0";
+
+  for (let i = 0; i < obstacles.length; i++) {
+    obstacles[i].classList.remove("show");
+    obstacles[i].classList.add("hide");
+  }
+
+  road.classList.remove("stop");
+  for (let j = 0; j < obstacles.length; j++) {
+    obstacles[j].classList.remove("stop");
+  }
+
+  requestAnimationFrame(checkCollision);
+  requestAnimationFrame(checkScore);
+  obstacleCreationSpeed = 5000;
+  setInterval(createObstacle, obstacleCreationSpeed);
+  setInterval(function () {
+    obstacleMovementSpeed *= 1.01;
+  }, 1000);
+  continueGame.classList.remove("show");
+  restart.classList.remove("show");
+  restart.classList.add("hide");
+  continueGame.classList.add("hide");
+});
+
+continueGame.addEventListener("click", function () {
+  gameOn = true;
+  if (road.classList.contains("stop")) {
+    road.classList.remove("stop");
+  }
+
+  for (let j = 0; j < obstacles.length; j++) {
+    if (obstacles[j].classList.contains("stop")) {
+      obstacles[j].classList.remove("stop");
+    }
+  }
+  continueGame.classList.remove("show");
+  restart.classList.remove("show");
+  continueGame.classList.add("hide");
+  restart.classList.add("hide");
+  requestAnimationFrame(checkCollision);
 });
 
 const highScore = localStorage.getItem("highScore");
@@ -36,11 +118,29 @@ if (highScore) {
 }
 
 //pause button, restart? , home menu -select car, background, start button, tutorials,lives,levels
+
 requestAnimationFrame(checkCollision);
-setInterval(createObstacle, 5000);
+// requestAnimationFrame(checkScore);
+setInterval(createObstacle, obstacleCreationSpeed);
+setInterval(function () {
+  obstacleMovementSpeed *= 1.01;
+}, 1000);
+
+function checkScore() {
+  const currentScore = Number(scoreElement.textContent.split(" ")[1]);
+  const scoreThresholds = [5000, 10000, 20000, 50000, 100000];
+  const speed = [4000, 3000, 2000, 1000, 500];
+  for (let i = scoreThresholds.length - 1; i >= 0; i--) {
+    if (currentScore > scoreThresholds[i]) {
+      console.log(i + 1);
+      obstacleCreationSpeed = speed[i];
+      break;
+    }
+  }
+  requestAnimationFrame(checkScore);
+}
 
 function checkCollision() {
-  let collision = false;
   const carRect = car.getBoundingClientRect();
   for (let i = 0; i < obstacles.length; i++) {
     const obstacleRect = obstacles[i].getBoundingClientRect();
@@ -50,7 +150,7 @@ function checkCollision() {
       carRect.left < obstacleRect.right &&
       carRect.bottom > obstacleRect.top
     ) {
-      collision = true;
+      gameOn = false;
       updateHighScore();
       if (!road.classList.contains("stop")) {
         road.classList.add("stop");
@@ -61,12 +161,11 @@ function checkCollision() {
           obstacles[j].classList.add("stop");
         }
       }
-
-      return true;
+      return;
     }
   }
 
-  if (!collision) {
+  if ((gameOn ==true)) {
     updateScore();
     requestAnimationFrame(checkCollision);
   }
@@ -143,9 +242,11 @@ function createObstacle() {
   const obstacle = document.getElementById(obstacleId);
   const obstacleRect = obstacle.getBoundingClientRect();
   const isShown = obstacle.classList.contains("show");
-  if (!isShown && !checkCollision()) {
+
+  if (!isShown && gameOn) {
     obstacle.classList.remove("hide");
     obstacle.classList.add("show");
+    obstacle.style.animationDuration = `$(obstacleMovementSpeed)s`;
     if (lane == 1) {
       obstacle.classList.add("obstacleAnimationLeft");
     } else if (lane == 2) {

@@ -38,7 +38,7 @@ body {
   height: 10000000000000vh;
   width: 18vw;
   animation-name: moveRoad;
-  animation-duration: 1000000s;
+  animation-duration: 200000s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -46,7 +46,7 @@ body {
 .obstacle {
   position: absolute;
   animation:  none;
-  display:none;
+  /* display:none; */
 }
 .obstacleImg {
   width: 5vw;
@@ -101,6 +101,50 @@ body {
   align-self: flex-end;
   margin: 1vh;
   padding: 4px;
+}
+
+#restart{
+  position:absolute;
+  background-color: red;
+  border-width:2.5px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(27, 23, 23);
+  min-height: 30px;
+  min-width:60px;
+  font-size: medium;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: antiquewhite;
+  z-index:70;
+  align-self: center;
+  margin: 1vh;
+  padding: 4px;
+  top:50vh;
+  /* display:none; */
+}
+
+#continue{
+  position:absolute;
+  background-color: blue;
+  border-width:2.5px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(27, 23, 23);
+  min-height: 30px;
+  min-width:60px;
+  font-size: medium;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: antiquewhite;
+  z-index:70;
+  align-self: center;
+  margin: 1vh;
+  padding: 4px;
+  bottom:50vh;
+  /* display:none; */
 }
 
 @keyframes moveObstacleCenter {
