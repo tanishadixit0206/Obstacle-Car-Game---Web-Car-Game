@@ -161,6 +161,10 @@ function checkCollision() {
           obstacles[j].classList.add("stop");
         }
       }
+      pause.classList.remove("show");
+      pause.classList.remove("hide");
+      restart.classList.remove("hide");
+      restart.classList.add("show");
       return;
     }
   }
