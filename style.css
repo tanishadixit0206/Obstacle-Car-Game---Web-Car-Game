@@ -30,7 +30,7 @@ body {
   margin-bottom: 2vh;
 }
 
-.road {
+#road {
   background-image: url("pictures/2d/roads/road1.jpg");
   background-repeat: repeat-y;
   background-size: contain;
@@ -38,22 +38,20 @@ body {
   height: 10000000000000vh;
   width: 18vw;
   animation-name: moveRoad;
-  animation-duration: 100000s;
+  animation-duration: 1000000s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 .obstacle {
   position: absolute;
-  animation-name: moveObstacle;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
+  animation:  none;
   display:none;
 }
 .obstacleImg {
   width: 5vw;
   height: auto;
   z-index: 20;
-  /* display: none; */
 }
 
 #score{
@@ -85,12 +83,50 @@ body {
   padding: 4px;
 }
 
-@keyframes moveObstacle {
+#pause{
+  position:absolute;
+  background-color: red;
+  border-width:2.5px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(27, 23, 23);
+  min-height: 30px;
+  min-width:60px;
+  font-size: medium;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: antiquewhite;
+  z-index:50;
+  align-self: flex-end;
+  margin: 1vh;
+  padding: 4px;
+}
+
+@keyframes moveObstacleCenter {
   0% {
-    transform: translateY(0);
+    transform: translate(0,0);
   }
   100% {
-    transform: translateY(100vh);
+    transform: translate(0,100vh);
+  }
+}
+
+@keyframes moveObstacleLeft {
+  0% {
+    transform: translate(-6vw,0);
+  }
+  100% {
+    transform: translate(-6vw,100vh);
+  }
+}
+
+@keyframes moveObstacleRight {
+  0% {
+    transform: translate(6vw,0);
+  }
+  100% {
+    transform: translate(6vw,100vh);
   }
 }
 
@@ -107,3 +143,28 @@ body {
   animation-play-state: paused;
 }
 
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+.obstacleAnimationCenter{
+  animation-name: moveObstacleCenter;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+
+.obstacleAnimationLeft{
+  animation-name: moveObstacleLeft;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+
+.obstacleAnimationRight{
+  animation-name: moveObstacleRight;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
