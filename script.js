@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   restart.addEventListener("click", function () {
+    gameOn=true;
     obstacleMovementSpeed = 5;
     obstacleCreationSpeed = 5000;
     scoreElement.textContent = "Score: 0";
