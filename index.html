@@ -8,7 +8,16 @@
 </head>
 <body>
   <h1 id="welcome">Welcome back!</h1>
-  <h2 class="text">Choose a background!</h2>
+  <h2 class ='text' style="text-decoration: underline;">Instructions</h2>
+  <div class="point-container" style="align-self: baseline;">
+    <ul class="point">
+      <li>Press left arrow-key or A/a to move left.</li>
+      <li>Press right arrow-key or D/d to move right.</li>
+      <li>Dodge those obstacles coming your way and set a new highscore!</li>
+    </ul>
+  </div>
+   <h2 class="text">Choose a background!</h2>
+  <h4 class="text">Click on your desired background and then click on the choose button at the bottom-right corner to select it.</h4>
   <div id="backgroundContainer">
     <img id="background1" class="backgroundImage" src="pictures/2d/backgrounds/background1.png">
     <img id="background2" class="backgroundImage" src="pictures/2d/backgrounds/background2.png">
@@ -21,8 +30,9 @@
     <img id="background9" class="backgroundImage" src="pictures/2d/backgrounds/background9.png">
     <!-- <img id="background10" class="backgroundImage" src="pictures/2d/backgrounds/background10.png"> -->
 </div>
-<button id="chooseBackground" class="popOut">Choose</button>
+<button id="chooseBackground" class="popOut">Choose this background</button>
 <h2 class="text">Choose a car!</h2>
+<h4 class="text">Click on your desired car and then click on the choose button at the bottom-right corner to select it.</h4>
   <div id="carContainer">
     <img id="redcarstripes1" class="carImage" src="pictures/2d/player_cars/redcarstripes1.png">
     <img id="goldensupercar1" class="carImage" src="pictures/2d/player_cars/goldensupercar1.png">
@@ -35,7 +45,7 @@
     <img id="policecar1" class="carImage" src="pictures/2d/player_cars/policecar1.png">
     <img id="taxicar1" class="carImage" src="pictures/2d/player_cars/taxicar1.png">
   </div>
-  <button id="chooseCar" class="popOut">Choose</button>
+  <button id="chooseCar" class="popOut">Choose this car</button>
   <script src="menu.js" defer></script>
 </body>
 </html>
