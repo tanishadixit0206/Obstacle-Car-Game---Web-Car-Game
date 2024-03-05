@@ -1,90 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GamePage</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h2 id="score">
-      Score: 0
-    </h2>
-    <h2 id="highScore">
-      High Score: 0
-    </h2>
-    <button id="pause">Pause</button>
-    <button id="restart">Restart</button>
-    <button id="continue">Continue</button>
-    <div id="road">
-    </div> 
-    <div id= policecar1 class="obstacle">
-      <img class="obstacleImg" src="pictures/2d/obstacles/policecar1.png" />
-    </div>
-    <div id= puddle1 class="obstacle">
-    <img class="obstacleImg" src="pictures/2d/obstacles/puddle1.png" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="styleMenu.css" />
+</head>
+<body>
+  <h1 id="welcome">Welcome back!</h1>
+  <h2 class="text">Choose a background!</h2>
+  <div id="backgroundContainer">
+    <img id="background1" class="backgroundImage" src="pictures/2d/backgrounds/background1.png">
+    <img id="background2" class="backgroundImage" src="pictures/2d/backgrounds/background2.png">
+    <img id="background3" class="backgroundImage" src="pictures/2d/backgrounds/background3.png">
+    <img id="background4" class="backgroundImage" src="pictures/2d/backgrounds/background4.png">
+    <img id="background5" class="backgroundImage" src="pictures/2d/backgrounds/background5.png">
+    <img id="background6" class="backgroundImage" src="pictures/2d/backgrounds/background6.jpg">
+    <img id="background7" class="backgroundImage" src="pictures/2d/backgrounds/background7.jpg">
+    <!-- <img id="background8" class="backgroundImage" src="pictures/2d/backgrounds/background8.jpeg"> -->
+    <img id="background9" class="backgroundImage" src="pictures/2d/backgrounds/background9.png">
+    <!-- <img id="background10" class="backgroundImage" src="pictures/2d/backgrounds/background10.png"> -->
+</div>
+<button id="chooseBackground" class="popOut">Choose</button>
+<h2 class="text">Choose a car!</h2>
+  <div id="carContainer">
+    <img id="redcarstripes1" class="carImage" src="pictures/2d/player_cars/redcarstripes1.png">
+    <img id="goldensupercar1" class="carImage" src="pictures/2d/player_cars/goldensupercar1.png">
+    <img id="redsupercar1" class="carImage" src="pictures/2d/player_cars/redsupercar1.png">
+    <img id="blackcar1" class="carImage" src="pictures/2d/player_cars/blackcar1.png">
+    <img id="orangecar1" class="carImage" src="pictures/2d/player_cars/orangecar1.png">
+    <img id="whitecar1" class="carImage" src="pictures/2d/player_cars/whitecar1.png">
+    <img id="redcar1" class="carImage" src="pictures/2d/player_cars/redcar1.png">
+    <img id="bluecar1" class="carImage" src="pictures/2d/player_cars/bluecar1.png">
+    <img id="policecar1" class="carImage" src="pictures/2d/player_cars/policecar1.png">
+    <img id="taxicar1" class="carImage" src="pictures/2d/player_cars/taxicar1.png">
   </div>
-  <div id= puddle2 class="obstacle">
-    <img class="obstacleImg" src="pictures/2d/obstacles/puddle2.png" />
-  </div>
-  <div id= rock1 class="obstacle"> 
-    <img class="obstacleImg" src="pictures/2d/obstacles/rock1.png" />
-  </div>
-  <div id= rock2 class="obstacle"> 
-    <img class="obstacleImg" src="pictures/2d/obstacles/rock2.png" />
-  </div>
-  <div id= traffic-barrier class="obstacle"> 
-     <img class="obstacleImg" src="pictures/2d/obstacles/traffic-barrier.png" />
-  </div>
-  <div id= trafficcone1 class="obstacle"> 
-     <img class="obstacleImg" src="pictures/2d/obstacles/trafficcone1.png" />
-  </div>
-  <div id= trafficcone3 class="obstacle">  
-     <img class="obstacleImg" src="pictures/2d/obstacles/trafficcone3.png" />
-  </div>
-  <div id= tree1 class="obstacle">  
-     <img class="obstacleImg" src="pictures/2d/obstacles/tree1.png" />
-  </div>
-  <div id= tree2 class="obstacle">  
-     <img class="obstacleImg" src="pictures/2d/obstacles/tree2.png" />
-  </div>
-  <div id= tree3 class="obstacle">  
-     <img class="obstacleImg" src="pictures/2d/obstacles/tree3.png" />
-  </div>
-  <div id= tree4 class="obstacle">  
-     <img class="obstacleImg" src="pictures/2d/obstacles/tree4.png" />
-  </div>
-  <div id= person1 class="obstacle">   
-    <img class="obstacleImg" src="pictures/2d/obstacles/person1.png" />
-  </div>
-  <div id= person2 class="obstacle"> 
-      <img class="obstacleImg" src="pictures/2d/obstacles/person2.png" />
-  </div>
-  <div id= person3 class="obstacle"> 
-      <img class="obstacleImg" src="pictures/2d/obstacles/person3.png" />
-  </div>
-  <div id= person4 class="obstacle">  
-     <img class="obstacleImg" src="pictures/2d/obstacles/person4.png" />
-  </div>
-  <div id= person5 class="obstacle"> 
-      <img class="obstacleImg" src="pictures/2d/obstacles/person5.png" />
-  </div>
-  <div id= person6 class="obstacle">   
-    <img class="obstacleImg" src="pictures/2d/obstacles/person6.png" />
-  </div>
-  <div id= person7 class="obstacle"> 
-      <img class="obstacleImg" src="pictures/2d/obstacles/person7.png" />
-  </div>
-  <div id= person8 class="obstacle"> 
-      <img class="obstacleImg" src="pictures/2d/obstacles/person8.png" />
-    </div>
-    <div id="mainCar">
-      <img
-        src="pictures/2d/player_cars/blackcar1.png"
-        alt="Player Car (You)"
-      />
-    </div>
-    <script src="script.js"></script>
-  </body>
+  <button id="chooseCar" class="popOut">Choose</button>
+  <script src="menu.js" defer></script>
+</body>
 </html>
-<!-- start button, pause button , score, health -->

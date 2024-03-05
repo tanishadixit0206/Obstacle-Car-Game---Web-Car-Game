@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  flex-direction: column;
+  /* background-image: url("pictures/3d/backgrounds/background1.jpg");
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed; */
+  background-color: bisque;
+  /* height: 100vh; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: row; */
+  /* justify-content: space-around; */
+  /* margin:20px; */
+  place-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.backgroundImage {
+  width: 22vw;
+  height: 22vh;
+  padding: 0.5vw;
+  margin: 0.5vw;
+  object-fit: cover;
+}
+
+#backgroundContainer {
+  position: relative;
+  background-color: aqua;
+}
+
+#welcome{
+    position: relative;
+  margin: 4px;
+  /* padding: 2px; */
+}
+.text{
+    position: relative;
+    align-self: baseline;
+  margin: 4px;
+  padding: 4px; 
+}
+
+.popOut{
+  position:relative;
+  z-index:10;
+    background-color: blueviolet;
+    border-width:2.5px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(27, 23, 23);
+    min-height: 25px;
+    min-width:60px;
+    font-size: large;
+    font-style: normal;
+    font-weight: bold;
+    font-stretch: condensed;
+    text-align: center;  
+    color: antiquewhite;
+    align-self: flex-end;
+    margin: 4px;
+    padding: 4px;
+}
+
+#carContainer{
+  position: relative;
+  background-color: aqua;
+}
+
+.carImage{
+  width: 16vw;
+  height: 32vh;
+  padding: 0.5vw;
+  margin: 0.5vw;
+  object-fit: contain;
+  border-style: solid;
+  background-color: antiquewhite;
+}
+
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
