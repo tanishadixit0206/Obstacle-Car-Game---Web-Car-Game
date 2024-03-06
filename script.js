@@ -8,12 +8,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const roadRect = road.getBoundingClientRect();
   const scoreElement = document.getElementById("score");
   const highScoreElement = document.getElementById("highScore");
+  const body = document.body;
   let obstacleMovementSpeed = 5;
   let obstacleCreationSpeed = 5000;
   let gameOn = true;
   restart.classList.add("hide");
   continueGame.classList.add("hide");
-  document.body.style.backgroundImage = `url("${localStorage.getItem('backgroundGameImage')}")`;
+  body.style.backgroundImage = `url("${localStorage.getItem('backgroundGameImage')}")`;
   car.querySelector('#mainCarImage').src=localStorage.getItem('playerCarImage');
   for (let j = 0; j < obstacles.length; j++) {
     if (!obstacles[j].classList.contains("hide")) {
@@ -53,6 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!road.classList.contains("stop")) {
       road.classList.add("stop");
     }
+    if (!body.classList.contains("stop")) {
+      body.classList.add("stop");
+    }
+
 
     for (let j = 0; j < obstacles.length; j++) {
       if (!obstacles[j].classList.contains("stop")) {
@@ -81,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     road.classList.remove("stop");
+    body.classList.remove("stop");
     for (let j = 0; j < obstacles.length; j++) {
       obstacles[j].classList.remove("stop");
     }
@@ -102,6 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
     gameOn = true;
     if (road.classList.contains("stop")) {
       road.classList.remove("stop");
+    }
+    if (body.classList.contains("stop")) {
+      body.classList.remove("stop");
     }
 
     for (let j = 0; j < obstacles.length; j++) {
@@ -136,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const speed = [4000, 3000, 2000, 1000, 500];
     for (let i = scoreThresholds.length - 1; i >= 0; i--) {
       if (currentScore > scoreThresholds[i]) {
-        console.log(i + 1);
         obstacleCreationSpeed = speed[i];
         break;
       }
@@ -159,6 +167,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!road.classList.contains("stop")) {
           road.classList.add("stop");
         }
+        if (!body.classList.contains("stop")) {
+          body.classList.add("stop");
+        }
 
         for (let j = 0; j < obstacles.length; j++) {
           if (!obstacles[j].classList.contains("stop")) {
@@ -166,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
         pause.classList.remove("show");
-        pause.classList.remove("hide");
+        pause.classList.add("hide");
         restart.classList.remove("hide");
         restart.classList.add("show");
         return;

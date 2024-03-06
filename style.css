@@ -1,14 +1,18 @@
 body {
   background-image: url("pictures/2d/backgrounds/background8.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-repeat: repeat-y;
+  background-size: contain;
+  /* background-attachment: fixed; */
   background-position: center;
-  height: 100vh;
+  height: 10000000000000vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
+  animation-name: movebackground;
+  animation-duration: 200000s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 * {
@@ -180,6 +184,15 @@ body {
   }
   100%{
     transform: translateY(100%);
+  } 
+}
+
+@keyframes movebackground {
+  0%{
+    background-position: 0% 0%;
+  }
+  100%{
+    background-position: 0% 100%;
   } 
 }
 
