@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const pause = document.getElementById("pause");
   const restart = document.getElementById("restart");
+  const menu = document.getElementById("menu");
   const continueGame = document.getElementById("continue");
   const car = document.getElementById("mainCar");
   const obstacles = document.getElementsByClassName("obstacle");
@@ -13,9 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let obstacleCreationSpeed = 5000;
   let gameOn = true;
   restart.classList.add("hide");
+  menu.classList.add("hide");
   continueGame.classList.add("hide");
-  body.style.backgroundImage = `url("${localStorage.getItem('backgroundGameImage')}")`;
-  car.querySelector('#mainCarImage').src=localStorage.getItem('playerCarImage');
+  body.style.backgroundImage = `url("${localStorage.getItem(
+    "backgroundGameImage"
+  )}")`;
+  car.querySelector("#mainCarImage").src =
+    localStorage.getItem("playerCarImage");
   for (let j = 0; j < obstacles.length; j++) {
     if (!obstacles[j].classList.contains("hide")) {
       obstacles[j].classList.add("hide");
@@ -58,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
       body.classList.add("stop");
     }
 
-
     for (let j = 0; j < obstacles.length; j++) {
       if (!obstacles[j].classList.contains("stop")) {
         obstacles[j].classList.add("stop");
@@ -71,11 +75,16 @@ document.addEventListener("DOMContentLoaded", function () {
       continueGame.classList.remove("hide");
     }
     restart.classList.add("show");
+    menu.classList.add("show");
     continueGame.classList.add("show");
   });
 
+  menu.addEventListener("click",function(){
+    window.location.href = "index.html";
+  })
+
   restart.addEventListener("click", function () {
-    gameOn=true;
+    gameOn = true;
     obstacleMovementSpeed = 5;
     obstacleCreationSpeed = 5000;
     scoreElement.textContent = "Score: 0";
@@ -102,6 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
     restart.classList.remove("show");
     restart.classList.add("hide");
     continueGame.classList.add("hide");
+    menu.classList.remove("show");
+    menu.classList.add("hide");
   });
 
   continueGame.addEventListener("click", function () {
@@ -122,6 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
     restart.classList.remove("show");
     continueGame.classList.add("hide");
     restart.classList.add("hide");
+    menu.classList.remove("show");
+    menu.classList.add("hide");
     requestAnimationFrame(checkCollision);
   });
 
@@ -180,6 +193,8 @@ document.addEventListener("DOMContentLoaded", function () {
         pause.classList.add("hide");
         restart.classList.remove("hide");
         restart.classList.add("show");
+        menu.classList.remove("hide");
+        menu.classList.add("show");
         return;
       }
     }

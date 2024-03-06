@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* overflow: hidden; */
+  overflow: hidden;
   animation-name: movebackground;
   animation-duration: 200000s;
   animation-timing-function: linear;
@@ -126,6 +126,27 @@ body {
   margin: 1vh;
   padding: 4px;
   top:50vh;
+  /* display:none; */
+}
+#menu{
+  position:absolute;
+  background-color: red;
+  border-width:2.5px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(27, 23, 23);
+  min-height: 30px;
+  min-width:60px;
+  font-size: medium;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: condensed;
+  color: antiquewhite;
+  z-index:70;
+  align-self: center;
+  margin: 1vh;
+  padding: 4px;
+  top:55vh;
   /* display:none; */
 }
 
