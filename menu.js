@@ -24,10 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
       chooseBackground.addEventListener("click", function () {
         chooseBackground.classList.remove("show");
         chooseBackground.classList.add("hide");
-        console.log(image);
         backgroundSrc = image.src;
         localStorage.setItem("backgroundGameImage",backgroundSrc);
-        console.log(backgroundSrc);
       });
 
       
@@ -47,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
         chooseCar.classList.add("hide");
         carSrc = image.src;
         localStorage.setItem("playerCarImage",carSrc);
-        console.log(carSrc);
       });
 
       
