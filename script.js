@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const roadRect = road.getBoundingClientRect();
   const scoreElement = document.getElementById("score");
   const highScoreElement = document.getElementById("highScore");
+  
   const body = document.body;
   let obstacleMovementSpeed = 5;
   let obstacleCreationSpeed = 5000;
@@ -26,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
       obstacles[j].classList.add("hide");
     }
   }
+
+
 
   document.addEventListener("keydown", function (event) {
     const key = event.key.toLowerCase();
